@@ -1,0 +1,8 @@
+# secrets and local-only
+.env
+.env.*
+.claude/
+.DS_Store
+node_modules/
+# earlier round-1/round-2 sample directions stay local
+directions/

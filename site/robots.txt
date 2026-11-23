@@ -1,0 +1,3 @@
+# Reference prototype: not for indexing. Replace with an Allow rule and sitemap at launch.
+User-agent: *
+Disallow: /
