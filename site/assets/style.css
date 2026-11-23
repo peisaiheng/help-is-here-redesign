@@ -382,3 +382,4 @@ ul.pills{list-style:none;padding:0}
 @media (prefers-reduced-motion:no-preference){.menu.open{animation:menuIn .18s ease-out}@keyframes menuIn{from{opacity:0;transform:translateY(-6px)}}}
 .hero .meta{display:block}
 .alt+.cta,.reviews+.cta{padding-top:clamp(56px,8vw,96px)}
+.two .ticks{margin:4px 0 28px}
