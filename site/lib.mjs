@@ -44,6 +44,7 @@ export const T = {
     },
     form: {
       need: "I'm looking for", needOpts: [['infant', 'Infant care'], ['elderly', 'Elderly care'], ['mandarin', 'Mandarin-speaking'], ['general', 'General household'], ['pets', 'Pet care']],
+      care: 'Care needs, if you know them', careNote: 'Optional. Share only what you are comfortable with.', careOpts: [['adl', 'Help with daily living'], ['dementia', 'Dementia-related behaviours'], ['mobility', 'Limited mobility'], ['tube', 'Stoma, catheter or feeding tube'], ['discharge', 'Coming home from hospital']],
       nat: 'Nationality preferred', natOpts: [['ph', 'Filipino'], ['id', 'Indonesian'], ['mm', 'Myanmar'], ['any', 'No preference']],
       name: 'Your name', tel: 'WhatsApp number', telPh: '+65 8123 4567', when: 'When do you need help to start?',
       whenOpts: ['As soon as possible', 'Within a month', 'In 1 to 3 months', 'Just exploring'],
@@ -84,6 +85,7 @@ export const T = {
     },
     form: {
       need: '我需要', needOpts: [['infant', '婴儿护理'], ['elderly', '长者护理'], ['mandarin', '会讲华语'], ['general', '一般家务'], ['pets', '宠物照顾']],
+      care: '照护需求（如已知）', careNote: '选填，仅分享您觉得方便的内容。', careOpts: [['adl', '日常起居协助'], ['dementia', '失智症相关行为'], ['mobility', '行动不便'], ['tube', '造口、导尿管或喂食管'], ['discharge', '出院返家']],
       nat: '偏好的国籍', natOpts: [['ph', '菲律宾'], ['id', '印尼'], ['mm', '缅甸'], ['any', '不限']],
       name: '您的姓名', tel: 'WhatsApp 号码', telPh: '+65 8123 4567', when: '您希望何时开始？',
       whenOpts: ['越快越好', '一个月内', '1至3个月内', '先了解一下'],
@@ -239,6 +241,11 @@ export function leadForm(L, { id = 'f', action = '#', heading, sub, sticky = tru
     <legend>${F.need} <span class="req" aria-hidden="true">*</span></legend>
     <div class="chips">${F.needOpts.map(([v, t]) => `<label><input type="checkbox" name="need" value="${v}"><span>${t}</span></label>`).join('')}</div>
     <p class="err" id="${id}-neederr" role="alert" hidden>${F.needErr}</p>
+  </fieldset>
+  <fieldset class="field" data-care>
+    <legend>${F.care}</legend>
+    <div class="chips">${F.careOpts.map(([v, t]) => `<label><input type="checkbox" name="care" value="${v}"><span>${t}</span></label>`).join('')}</div>
+    <p class="hint">${F.careNote}</p>
   </fieldset>
   <fieldset class="field">
     <legend>${F.nat}</legend>

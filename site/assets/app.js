@@ -52,6 +52,13 @@
       const c = $(`input[name=${k}][value="${CSS.escape(v)}"]`, f);
       if (c) c.checked = true;
     });
+    // Care-needs chips only appear once "Elderly care" is chosen.
+    const care = $('[data-care]', f), elderly = $('input[name=need][value=elderly]', f);
+    if (care && elderly) {
+      const sync = () => { care.hidden = !elderly.checked; };
+      elderly.addEventListener('change', sync);
+      sync();
+    }
     const ok = f.nextElementSibling && f.nextElementSibling.matches('[data-ok]') ? f.nextElementSibling : null;
     const show = (el, on) => { if (el) el.hidden = !on; };
     const rules = { name: (v) => v.trim().length > 1, tel: (v) => v.replace(/[^\d]/g, '').length >= 8 };

@@ -383,3 +383,37 @@ ul.pills{list-style:none;padding:0}
 .hero .meta{display:block}
 .alt+.cta,.reviews+.cta{padding-top:clamp(56px,8vw,96px)}
 .two .ticks{margin:4px 0 28px}
+
+/* ---------- Eldercare page additions ---------- */
+.strengths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.strengths .fc{padding:32px 28px}
+.strengths .n{width:44px;height:44px;border-radius:50%;background:var(--purple-50);color:var(--purple-700);display:grid;place-items:center;font:600 20px var(--display)}
+.strengths .fc:nth-child(4) .n{background:var(--orange-50);color:var(--orange-700)}
+.strengths small{color:var(--ink-muted);font-size:14px;line-height:20px}
+.needs{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 20px}
+.needs li{padding:10px 16px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--purple-300);color:var(--purple-800);font-weight:500;font-size:15px;line-height:22px}
+.note{font-size:14px;line-height:22px;color:var(--ink-muted)}
+.note a,.prose p a{color:var(--purple-700);text-decoration:underline;text-underline-offset:3px}
+.two .btn+.note{margin-top:16px}
+.steps.s3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.steps.s3 .step:nth-child(3){background:var(--purple-700);color:#fff}
+.steps.s3 .step:nth-child(3) .n{background:var(--orange-500);color:var(--purple-900)}
+.steps.s3 .step:nth-child(3) p{color:var(--purple-100)}
+.speed .box{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center;background:var(--orange-50);border-radius:var(--r-lg);padding:clamp(28px,5vw,56px)}
+.speed .big{display:flex;flex-direction:column;align-items:center;color:var(--orange-700);font-family:var(--display)}
+.speed .big b{font-size:clamp(88px,12vw,144px);line-height:1;font-weight:600}
+.speed .big span{font:600 18px var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.speed h2{font-size:clamp(26px,3.2vw,38px);margin:12px 0 14px}
+.speed p{color:var(--ink-muted)}
+.speed figure{margin-top:24px;padding-left:18px;border-left:3px solid var(--orange-500)}
+.speed blockquote{font-size:17px;line-height:26px;font-weight:500}
+.speed cite{display:block;margin-top:8px;font-style:normal;font-size:14px;color:var(--ink-muted)}
+.prose{max-width:760px}
+.prose>div{margin-bottom:44px}
+.prose h2{font-size:clamp(24px,2.8vw,32px);margin-bottom:16px}
+.prose p{color:var(--ink-muted)}
+.hint{font-size:13px;line-height:20px;color:var(--ink-muted);margin-top:8px}
+fieldset[hidden]{display:none}
+@media (max-width:900px){.steps.s3{grid-template-columns:minmax(0,1fr)}.steps.s3 .step{min-height:0}}
+@media (max-width:700px){.strengths{grid-template-columns:minmax(0,1fr)}.speed .box{grid-template-columns:minmax(0,1fr)}.speed .big{flex-direction:row;align-items:baseline;gap:12px}}
+.speed{padding-top:0}

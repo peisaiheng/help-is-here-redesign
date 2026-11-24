@@ -94,9 +94,9 @@ ${press(L)}
 
 <section id="care">
   <div class="wrap">
-    ${head('What we do best', 'Infant care and elderly care are <em>our specialty.</em>', 'Most agencies place everyone. We chose to go deep on the two moments when the right helper matters most.')}
+    ${head('What we do best', 'Infant care and elderly care are <em>our speciality.</em>', 'Most agencies place everyone. We chose to go deep on the two moments when the right helper matters most.')}
     ${show({ eyebrow: 'Infant care', h3: 'Care for mummy and baby, before and after birth.', p: 'A confinement nanny is around for a month. A trained helper stays on, at a reasonable rate, and some of ours also prepare confinement and milk-boosting meals.', list: ['Baby-care experience plus extra training', 'Confinement and milk-boosting meals, on request', 'Support for mother and baby beyond the first month'], btn: 'Find an infant-care helper', btnHref: needLink('infant'), link: ['infant-care.html', 'See how infant care works'], main: img('v2-infant.jpg', 'A helper bottle-feeding a baby while the mother smiles beside them', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
-    ${show({ rev: true, eyebrow: 'Elderly care', h3: 'Safe, respectful days at home for the people you love.', p: 'Untrained care can put the elderly at risk, especially with special conditions. Our helpers complete a formal eldercare course and need minimal instruction to do their job well.', list: ['Formal eldercare training before placement', 'Matched on temperament, not only on skills', 'Mandarin-speaking helpers available'], btn: 'Find an eldercare helper', btnHref: needLink('elderly'), link: ['elderly-care.html', 'See how eldercare works'], main: img('v2-elderly.jpg', 'A helper walking arm in arm with a smiling elderly woman who uses a cane', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }), mini: img('v2-elderly2.jpg', 'A helper setting out medication for an elderly man at the dining table', { cls: 'mini', sizes: '220px' }) })}
+    ${show({ rev: true, eyebrow: 'Elderly care', h3: 'Not just another placement.', p: 'We understand the care your loved one needs before we recommend a helper, from dementia and mobility to stoma and tube care. If a placement would not suit, we will tell you.', list: ['Matched on care needs, not only availability', 'Help with AIC grants and bringing a parent home', 'Mandarin-speaking helpers, many with Taiwan eldercare experience', 'Deployment in as little as two weeks for suitable cases'], btn: 'Find an eldercare helper', btnHref: needLink('elderly'), link: ['elderly-care.html', 'See how eldercare works'], main: img('v2-elderly.jpg', 'A helper walking arm in arm with a smiling elderly woman who uses a cane', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }), mini: img('v2-elderly2.jpg', 'A helper setting out medication for an elderly man at the dining table', { cls: 'mini', sizes: '220px' }) })}
   </div>
 </section>
 
@@ -162,7 +162,7 @@ pages['services.html'] = layout({
 <section style="padding-top:24px"><div class="wrap">
   <h2 class="sr">Our care services</h2>
   ${show({ eyebrow: 'Infant care', h3: 'Care for mummy and baby, before and after birth.', p: 'Helpers trained to support you while you are pregnant and after you give birth, at a more affordable rate than a confinement nanny. All are equipped with the basics of baby care, such as feeding and bathing.', list: ['Pre-natal and post-partum support', 'Feeding, bathing and baby routines', 'Confinement and milk-boosting meals, on request'], btn: 'See how infant care works', btnHref: 'infant-care.html', main: img('v2-confinement.jpg', 'A helper ladling nourishing soup in a home kitchen', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
-  ${show({ rev: true, eyebrow: 'Elderly care', h3: 'Trained care that gives seniors undivided attention.', p: 'Our helpers all undergo comprehensive eldercare training and are equipped with the basic skills to care for your loved ones, so you can go to work with peace of mind.', list: ['Comprehensive eldercare training', 'Reliable day-to-day home care', 'Matched on temperament as well as skills'], btn: 'See how eldercare works', btnHref: 'elderly-care.html', main: img('v2-elderly2.jpg', 'A helper helping an elderly man with his weekly medication', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
+  ${show({ rev: true, eyebrow: 'Elderly care', h3: 'Eldercare that starts with your loved one’s needs.', p: 'We learn about daily-living support, dementia-related behaviours, mobility and tube care, then assess whether a helper can realistically manage the role before we recommend anyone.', list: ['Matched on care needs, not only availability', 'Help with AIC grants and practical care arrangements', 'Mandarin-speaking helpers, many with Taiwan eldercare experience'], btn: 'See how eldercare works', btnHref: 'elderly-care.html', main: img('v2-elderly2.jpg', 'A helper helping an elderly man with his weekly medication', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
 </div></section>
 
 <section class="alt"><div class="wrap two top">
@@ -217,39 +217,93 @@ ${ctaBand(L, needLink('infant'))}`,
 });
 
 /* ---------- Elderly care ---------- */
+const ELDER_FAQ = [
+  ['What if the helper is not suitable for my parent’s needs?', 'We assess suitability before we recommend anyone. If a placement would not suit your loved one’s needs, we will tell you honestly instead of pushing a candidate.'],
+  ['Can a helper care for someone with dementia, a stoma, a catheter or a feeding tube?', 'It depends on the person and on the helper. We learn what care is needed, assess whether a helper can realistically manage the role, and identify where additional professional training or support may be needed. We advise against placements that would not be suitable.'],
+  ['Do you help with AIC caregiving grants?', 'We help families navigate relevant AIC caregiving grants and practical care arrangements. Eligibility and amounts are set by AIC, so we will point you to the right information for your situation.'],
+  ['How quickly can a helper start?', 'Deployment can take as little as two weeks for suitable cases, subject to candidate availability, approvals and case requirements. Tell us your timeline in your first message so we can plan around it.'],
+  ['What training do eldercare helpers have?', 'Our helpers attend a professional training course in eldercare so they can look after your loved ones, and need minimal instruction once they are home. Where your loved one has specific needs, we also identify whether extra training or support is needed.'],
+  ['Can you place a Mandarin-speaking helper?', 'Yes. We have access to Mandarin-speaking helpers, many with eldercare experience in Taiwan. Tell us your parent’s language and we will look for helpers who can talk with them comfortably.'],
+];
+const SPEED_REVIEW = REVIEWS.find((r) => r[0].includes('two weeks'));
 pages['elderly-care.html'] = layout({
   ...BASE, file: 'elderly-care.html', active: 'services.html',
   title: 'Eldercare helper in Singapore | Help Is Here',
-  desc: 'Formally trained eldercare helpers matched on temperament and skills, so your parents are safe and respected at home while you are at work.',
+  desc: 'Eldercare matched to your loved one’s needs, from dementia and mobility to stoma and tube care. Mandarin-speaking helpers, grant guidance and deployment in as little as two weeks for suitable cases.',
+  ld: [faqLD(ELDER_FAQ)],
   body: `${phead({
-    c: crumbs(['services.html', 'Our services'], [null, 'Elderly care']), eyebrow: 'Elderly care', h1: 'Safe, respectful days at home <em>for the people you love.</em>',
-    lead: 'Hiring an untrained or inexperienced helper can put an elderly parent at risk, especially with special conditions. Our helpers undergo formal training and need minimal instruction.',
-    calls: `<a class="btn offset" href="${needLink('elderly')}">Find an eldercare helper ${arrow}</a><a class="btn ghost" href="reviews.html">Read what families say</a>`,
+    c: crumbs(['services.html', 'Our services'], [null, 'Elderly care']), eyebrow: 'Elderly care', h1: 'Eldercare is our speciality. <em>Not just another placement.</em>',
+    lead: 'We understand the care your loved one needs before we recommend a helper. Because finding a helper is one thing. Finding someone suitable for your loved one’s needs is another.',
+    calls: `<a class="btn offset" href="${needLink('elderly')}">Find an eldercare helper ${arrow}</a><a class="btn ghost" href="reviews.html?topic=elderly">Read what families say</a>`,
     photo: img('v2-elderly.jpg', 'A helper walking arm in arm with a smiling elderly woman who uses a cane', { lazy: false, sizes: '(min-width:1000px) 560px, 100vw' }),
   })}
 <section style="padding-top:24px"><div class="wrap">
-  ${head('What good eldercare looks like', 'Skills, and the right temperament.')}
-  <div class="fcards">
-    <article class="fc reveal"><h3>Formally trained</h3><p>Every helper completes a professional training course in eldercare before placement.</p></article>
-    <article class="fc reveal"><h3>Works with minimal instruction</h3><p>Our curated helpers know how things work in Singapore and can complete tasks with little guidance.</p></article>
-    <article class="fc reveal"><h3>Matched on personality</h3><p>Your parent's temperament, language and routine matter as much as skills. Your advisor looks for a fit.</p></article>
+  ${head('Four things we do differently', 'The right helper depends on the person.')}
+  <div class="strengths">
+    <article class="fc reveal"><span class="n">1</span><h3>We match on care needs, not availability</h3><p>We learn about daily-living support, dementia-related behaviours, mobility, and stoma or tube-care needs. Then we assess whether a helper can realistically manage the role, and advise against placements that would not suit.</p></article>
+    <article class="fc reveal"><span class="n">2</span><h3>We guide you through the practical side</h3><p>We are familiar with AIC caregiving grants, caregiver training options and discharge-related communication, and with the practical challenges of bringing an elderly relative home.</p></article>
+    <article class="fc reveal"><span class="n">3</span><h3>Mandarin-speaking helpers, many with Taiwan experience</h3><p>For Mandarin-speaking parents, a shared language and relevant eldercare experience can make daily care much easier for everyone.</p></article>
+    <article class="fc reveal"><span class="n">4</span><h3>Fast when time matters</h3><p>Deployment in as little as two weeks for suitable cases.</p><small>Subject to candidate availability, approvals and case requirements.</small></article>
   </div>
 </div></section>
 
-<section class="alt warm"><div class="wrap two">
-  <div class="reveal"><span class="eyebrow">Day to day</span><h2>Calm routines, done well.</h2><p>Reliable home care means your loved one gets the undivided attention they deserve while you are at work.</p>${ticks(['Mobility and daily-living assistance', 'Medication reminders and routines', 'Meals the way your family likes them', 'Mandarin-speaking helpers available on request'])}<a class="btn" href="${needLink('elderly')}">Find an eldercare helper</a></div>
+<section class="alt"><div class="wrap two">
+  <div class="reveal"><span class="eyebrow">Care needs we plan for</span><h2>Tell us the real situation. We plan around it.</h2><p>We ask about these early because they decide who is suitable. Where a helper would need additional professional training or support, we identify it before placement.</p>
+    <ul class="needs" aria-label="Care needs we plan for"><li>Daily-living support</li><li>Dementia-related behaviours</li><li>Mobility limitations</li><li>Stoma care</li><li>Catheter care</li><li>Feeding-tube care</li></ul>
+    <p class="note">Share only what you are comfortable with. Your advisor will ask the rest in person.</p></div>
   <div class="photo reveal">${img('v2-elderly2.jpg', 'A helper helping an elderly man with his weekly medication at the dining table', { sizes: '(min-width:1000px) 560px, 100vw' })}</div>
 </div></section>
 
 <section><div class="wrap">
-  ${head('Reviews', 'From families caring for parents.')}
-  <div class="cards">${REVIEWS.filter((r) => r[3].includes('elderly')).slice(0, 3).map(([q, w, r]) => `<figure class="rc reveal"><blockquote>“${esc(q)}”</blockquote><cite><b>${esc(w)}</b>${esc(r ? r + ' · ' : '')}Google review</cite></figure>`).join('')}</div>
+  ${head('How we match', 'Understand first. Recommend second.')}
+  <div class="steps s3">
+    <article class="step reveal"><span class="n">1</span><h3>Tell us about your loved one</h3><p>Their daily routine, health and care needs, language, and how your home is set up.</p></article>
+    <article class="step reveal"><span class="n">2</span><h3>We assess suitability</h3><p>We look at whether a helper can realistically manage the role, and where extra training or support may be needed.</p></article>
+    <article class="step reveal"><span class="n">3</span><h3>You meet suitable helpers only</h3><p>If a placement would not suit your loved one, we will tell you honestly.</p></article>
+  </div>
 </div></section>
 
-<section class="alt"><div class="wrap">${head('Questions', 'Eldercare, answered.')}${faq([
-    ['What training do eldercare helpers have?', 'Our helpers attend a professional training course in eldercare so they can look after your loved ones, and need minimal instruction once they are home.'],
-    ['Can you place a Mandarin-speaking helper?', 'Yes. Tell us your parent’s language and we will look for helpers who can talk with them comfortably.'],
-  ])}</div></section>
+<section class="alt warm"><div class="wrap two">
+  <div class="photo reveal">${img('v2-family.jpg', 'A helper, a grandmother, a mother and a toddler preparing breakfast together', { sizes: '(min-width:1000px) 560px, 100vw' })}</div>
+  <div class="reveal"><span class="eyebrow">Practical guidance</span><h2>Bringing a parent home? You do not have to work it out alone.</h2><p>We help families navigate relevant AIC caregiving grants and practical care arrangements.</p>${ticks(['Which AIC caregiving grants may apply to you', 'Caregiver training options', 'Discharge-related communication', 'The practical challenges of settling a relative at home'])}<a class="btn" href="bringing-a-parent-home.html">Read the homecoming guide</a><p class="note">Grant eligibility and amounts are set by AIC. Check <a href="https://www.aic.sg" rel="noopener">aic.sg</a> for the latest.</p></div>
+</div></section>
+
+<section><div class="wrap two">
+  <div class="reveal"><span class="eyebrow">Mandarin-speaking helpers</span><h2>A language and experience match for Mandarin-speaking parents.</h2><p>We have access to Mandarin-speaking helpers, many with eldercare experience in Taiwan. For a parent who is most comfortable in Mandarin, that can mean easier conversations and a better fit.</p><a class="btn ghost" href="mandarin-speaking-maid.html">Meet Mandarin-speaking helpers</a></div>
+  <div class="photo reveal">${img('v2-mandarin.jpg', 'A helper chatting and laughing with an elderly man over tea', { sizes: '(min-width:1000px) 560px, 100vw' })}</div>
+</div></section>
+
+<section class="speed"><div class="wrap"><div class="box reveal">
+  <div class="big" aria-hidden="true"><b>2</b><span>weeks</span></div>
+  <div><span class="eyebrow">When time matters</span><h2>Deployment in as little as two weeks.</h2><p>For suitable cases. This is subject to candidate availability, approvals and case requirements, and your advisor will give you a realistic timeline up front.</p>
+  ${SPEED_REVIEW ? `<figure><blockquote>“${esc(SPEED_REVIEW[0])}”</blockquote><cite>${esc(SPEED_REVIEW[1])} · Google review</cite></figure>` : ''}</div>
+</div></div></section>
+
+<section class="alt"><div class="wrap">
+  ${head('Reviews', 'From families caring for parents.')}
+  <div class="cards">${REVIEWS.filter((r) => r[3].includes('elderly') && r !== SPEED_REVIEW).slice(0, 3).map(([q, w, r]) => `<figure class="rc reveal"><blockquote>“${esc(q)}”</blockquote><cite><b>${esc(w)}</b>${esc(r ? r + ' · ' : '')}Google review</cite></figure>`).join('')}</div>
+</div></section>
+
+<section><div class="wrap">${head('Questions', 'Eldercare, answered.')}${faq(ELDER_FAQ)}</div></section>
+${ctaBand(L, needLink('elderly'))}`,
+});
+
+/* ---------- Guide: bringing a parent home (DRAFT: needs company review before launch) ---------- */
+pages['bringing-a-parent-home.html'] = layout({
+  ...BASE, file: 'bringing-a-parent-home.html', active: 'articles.html',
+  title: 'Bringing a parent home: a practical checklist | Help Is Here',
+  desc: 'Questions to ask the care team, how to prepare the home, where to look for grants and what to tell your agency when an elderly parent is coming home.',
+  body: `${phead({
+    c: crumbs(['articles.html', 'Articles'], [null, 'Bringing a parent home']), eyebrow: 'Eldercare guide', h1: 'Bringing a parent home: <em>a practical checklist.</em>',
+    lead: 'Coming home after a hospital stay is a big change for everyone. These are the questions worth asking before the day, so the first weeks go more smoothly.',
+  })}
+<section style="padding-top:24px"><div class="wrap prose">
+  <div class="reveal"><h2>Before discharge: ask the care team</h2>${ticks(['What help does your parent need with daily living, such as bathing, dressing, eating and moving around?', 'Are there any tubes, a stoma or a catheter, and who will teach the family how to care for them?', 'Which medication is needed, and at what times?', 'Which mobility aids, such as a walking frame or wheelchair, will be needed at home?', 'When are the follow-up appointments, and how will your parent get there?', 'Is there a medical social worker who can talk through care arrangements and financial support?'])}</div>
+  <div class="reveal"><h2>Get the home ready</h2>${ticks(['Clear walkways and remove loose mats.', 'Check bathroom safety: non-slip flooring, grab bars and a shower seat.', 'Set up the bed and bedroom so your parent can move about safely.', 'Keep medication and care supplies together in one place.'])}</div>
+  <div class="reveal"><h2>Look at support and grants</h2><p>Caregiving grants and caregiver training options are handled by the Agency for Integrated Care (AIC). Eligibility and amounts change, so check <a href="https://www.aic.sg" rel="noopener">aic.sg</a> or ask the medical social worker for the latest. If you would like help working out what applies, tell your advisor.</p></div>
+  <div class="reveal"><h2>If you are hiring a helper</h2>${ticks(['Share the full picture early: daily-living needs, any tube or stoma care, behaviours that worry you, language, and how soon you need help.', 'Ask how the agency assesses whether a helper can realistically manage the role, and what training or support is available.', 'Ask whether the care team can teach the care steps to both you and the helper before discharge.'])}</div>
+  <p class="note reveal">This is a general checklist, not medical advice. Follow the guidance of your parent’s care team.</p>
+</div></section>
 ${ctaBand(L, needLink('elderly'))}`,
 });
 
@@ -276,7 +330,7 @@ pages['mandarin-speaking-maid.html'] = lite({
   lead: 'For parents who are more comfortable in Mandarin, communication is part of care. We look for helpers who can talk with them, not just about them.',
   photo: 'v2-mandarin.jpg', alt: 'A helper chatting and laughing with an elderly man over tea',
   why: ['Why it matters', 'Care starts with understanding.', 'Many of the families we help are looking after a parent who speaks mainly Mandarin. Tell us, and we will make language a priority in the shortlist.'],
-  points: ['Language discussed up front, before you meet any helper', 'Every helper interviewed one to one by our recruiter', 'Familiar with how Singapore households work', 'Matched on temperament as well as language'],
+  points: ['Many of our Mandarin-speaking helpers have eldercare experience in Taiwan', 'Language discussed up front, before you meet any helper', 'Every helper interviewed one to one by our recruiter', 'Familiar with how Singapore households work', 'Matched on temperament as well as language'],
   faqs: [['How do you check Mandarin ability?', 'Every helper is interviewed one to one by our in-house recruiter, and your advisor can include language in the questions at your video interview.'], ['Can I ask for another dialect or language?', 'Tell us what your family speaks and we will do our best to find a suitable helper.']],
 });
 
@@ -368,7 +422,7 @@ pages['articles.html'] = layout({
   title: 'Articles | Help Is Here', desc: 'Informative resources on hiring a helper, managing your household and caring for babies and elderly family members in Singapore.',
   body: `${phead({ c: crumbs([null, 'Articles']), eyebrow: "First-timer's guide", h1: 'Read first, <em>decide when you are ready.</em>', lead: 'Informative resources about recruiting helpers, managing a household, and learning from other employers in Singapore.' })}
 <section style="padding-top:8px"><div class="wrap">
-  <div class="alist">${ARTICLES.map(([t, u, tag, w]) => `<a href="${u}"><span class="tag ${w}">${tag}</span><h2>${t}</h2><span class="go">Read ${arrow}</span></a>`).join('')}</div>
+  <div class="alist"><a href="bringing-a-parent-home.html"><span class="tag warm">Elderly care</span><h2>Bringing a parent home: a practical checklist</h2><span class="go">Read ${arrow}</span></a>${ARTICLES.map(([t, u, tag, w]) => `<a href="${u}"><span class="tag ${w}">${tag}</span><h2>${t}</h2><span class="go">Read ${arrow}</span></a>`).join('')}</div>
 </div></section>
 ${ctaBand(L)}`,
 });
