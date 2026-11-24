@@ -42,7 +42,7 @@ export const crumbs = (...items) => `<nav class="crumbs" aria-label="Breadcrumb"
 export const phead = ({ eyebrow, h1, lead, photo, calls = '', c }) => `<section class="phead${photo ? '' : ' solo'}"><div class="wrap"><div>${c}<span class="eyebrow">${eyebrow}</span><h1>${h1}</h1><p class="lead">${lead}</p>${calls ? `<div class="calls">${calls}</div>` : ''}</div>${photo ? `<div class="photo">${photo}</div>` : ''}</div></section>`;
 
 export const show = ({ rev, eyebrow, h3, p, list, btn, btnHref, link, main, mini }) => `<article class="show${rev ? ' rev' : ''} reveal">
-${rev ? '' : `<div class="pics">${main}</div>`}
+${rev ? '' : `<div class="pics">${main}${mini || ''}</div>`}
 <div class="txt"><span class="eyebrow">${eyebrow}</span><h3>${h3}</h3><p>${p}</p>${ticks(list)}<div class="go"><a class="btn" href="${btnHref}">${btn}</a>${link ? `<a class="text" href="${link[0]}">${link[1]}</a>` : ''}</div></div>
 ${rev ? `<div class="pics">${main}${mini || ''}</div>` : ''}</article>`;
 
@@ -64,7 +64,7 @@ const pages = {};
 /* ---------- Home ---------- */
 pages['index.html'] = layout({
   ...BASE, file: 'index.html', active: 'index.html',
-  title: 'Help Is Here | Trusted maid agency in Singapore for infant and elderly care',
+  title: 'Help Is Here | Trusted maid agency in Singapore for elderly and infant care',
   desc: "Pre-screened domestic helpers with 4+ years' Singapore experience, matched to your family by a Care Advisor who listens first. Free care consult.",
   ld: [ldBusiness(), faqLD(FAQ)],
   body: `
@@ -73,7 +73,7 @@ pages['index.html'] = layout({
     <div>
       <span class="eyebrow">Maid agency in Singapore</span>
       <h1>Hiring a helper is a big decision. <em>We'll walk through it with you.</em></h1>
-      <p class="lead">Infant and elderly care specialists. Every helper has 4+ years' experience in Singapore and is interviewed by us first, so you only meet people who could genuinely fit your family.</p>
+      <p class="lead">Elderly and infant care specialists. Every helper has 4+ years' experience in Singapore and is interviewed by us first, so you only meet people who could genuinely fit your family.</p>
       <div class="calls">
         <a class="btn offset" href="contact.html">Find your helper ${arrow}</a>
         <a class="btn ghost" href="#guide">Read the first-timer's guide</a>
@@ -81,10 +81,10 @@ pages['index.html'] = layout({
       <p class="meta">Free care consult, no hard sell. Or call <a href="tel:${SITE.tel}">${SITE.telShow}</a></p>
     </div>
     <div class="frame">
-      <div class="photo">${img('v2-hero.jpg', 'A helper in a purple uniform cradling a sleeping newborn while the baby’s mother looks on', { w: 1200, h: 1600, lazy: false, sizes: '(min-width:1000px) 560px, 100vw' })}</div>
+      <div class="photo">${img('v2-hero-elder.jpg', 'A helper in a purple uniform laughing with an elderly woman as they hold hands on the sofa', { w: 1200, h: 1600, lazy: false, sizes: '(min-width:1000px) 560px, 100vw' })}</div>
       <aside class="float" aria-label="Customer review excerpt">
-        <p>“Chose our helper on 25th October through video conferencing. Received our helper on the 3rd of November. 9 days!”</p>
-        <small>Asilah S., first-time employer · Google review</small>
+        <p>“From the first meeting, Care Consultants Pei and Thiri heard and understood our worries and patiently addressed many of our concerns.”</p>
+        <small>Christine K., caring for her 90-year-old mother · Google review</small>
       </aside>
     </div>
   </div>
@@ -94,9 +94,9 @@ ${press(L)}
 
 <section id="care">
   <div class="wrap">
-    ${head('What we do best', 'Infant care and elderly care are <em>our speciality.</em>', 'Most agencies place everyone. We chose to go deep on the two moments when the right helper matters most.')}
-    ${show({ eyebrow: 'Infant care', h3: 'Care for mummy and baby, before and after birth.', p: 'A confinement nanny is around for a month. A trained helper stays on, at a reasonable rate, and some of ours also prepare confinement and milk-boosting meals.', list: ['Baby-care experience plus extra training', 'Confinement and milk-boosting meals, on request', 'Support for mother and baby beyond the first month'], btn: 'Find an infant-care helper', btnHref: needLink('infant'), link: ['infant-care.html', 'See how infant care works'], main: img('v2-infant.jpg', 'A helper bottle-feeding a baby while the mother smiles beside them', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
-    ${show({ rev: true, eyebrow: 'Elderly care', h3: 'Not just another placement.', p: 'We understand the care your loved one needs before we recommend a helper, from dementia and mobility to stoma and tube care. If a placement would not suit, we will tell you.', list: ['Matched on care needs, not only availability', 'Help with AIC grants and bringing a parent home', 'Mandarin-speaking helpers, many with Taiwan eldercare experience', 'Deployment in as little as two weeks for suitable cases'], btn: 'Find an eldercare helper', btnHref: needLink('elderly'), link: ['elderly-care.html', 'See how eldercare works'], main: img('v2-elderly.jpg', 'A helper walking arm in arm with a smiling elderly woman who uses a cane', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }), mini: img('v2-elderly2.jpg', 'A helper setting out medication for an elderly man at the dining table', { cls: 'mini', sizes: '220px' }) })}
+    ${head('What we do best', 'Elderly care and infant care are <em>our speciality.</em>', 'Most agencies place everyone. We chose to go deep on the two moments when the right helper matters most.')}
+    ${show({ eyebrow: 'Elderly care', h3: 'Not just another placement.', p: 'We understand the care your loved one needs before we recommend a helper, from dementia and mobility to stoma and tube care. If a placement would not suit, we will tell you.', list: ['Matched on care needs, not only availability', 'Help with AIC grants and bringing a parent home', 'Mandarin-speaking helpers, many with Taiwan eldercare experience', 'Deployment in as little as two weeks for suitable cases'], btn: 'Find an eldercare helper', btnHref: needLink('elderly'), link: ['elderly-care.html', 'See how eldercare works'], main: img('v2-elderly.jpg', 'A helper walking arm in arm with a smiling elderly woman who uses a cane', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }), mini: img('v2-elderly2.jpg', 'A helper setting out medication for an elderly man at the dining table', { cls: 'mini', sizes: '220px' }) })}
+    ${show({ rev: true, eyebrow: 'Infant care', h3: 'Care for mummy and baby, before and after birth.', p: 'A confinement nanny is around for a month. A trained helper stays on, at a reasonable rate, and some of ours also prepare confinement and milk-boosting meals.', list: ['Baby-care experience plus extra training', 'Confinement and milk-boosting meals, on request', 'Support for mother and baby beyond the first month'], btn: 'Find an infant-care helper', btnHref: needLink('infant'), link: ['infant-care.html', 'See how infant care works'], main: img('v2-infant.jpg', 'A helper bottle-feeding a baby while the mother smiles beside them', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
   </div>
 </section>
 
@@ -151,7 +151,7 @@ ${ctaBand(L)}`,
 pages['services.html'] = layout({
   ...BASE, file: 'services.html', active: 'services.html',
   title: 'Our services | Help Is Here',
-  desc: 'Upskilled helpers for infant care and eldercare, matched one to one by an in-house recruiter. See how we screen, train and support helpers.',
+  desc: 'Upskilled helpers for eldercare and infant care, matched one to one by an in-house recruiter. See how we screen, train and support helpers.',
   ld: faqLD(FAQ),
   body: `${phead({
     c: crumbs([null, 'Our services']), eyebrow: 'Our services', h1: 'Experienced, trained caregivers, so everyone can live well at home.',
@@ -161,8 +161,8 @@ pages['services.html'] = layout({
   })}
 <section style="padding-top:24px"><div class="wrap">
   <h2 class="sr">Our care services</h2>
-  ${show({ eyebrow: 'Infant care', h3: 'Care for mummy and baby, before and after birth.', p: 'Helpers trained to support you while you are pregnant and after you give birth, at a more affordable rate than a confinement nanny. All are equipped with the basics of baby care, such as feeding and bathing.', list: ['Pre-natal and post-partum support', 'Feeding, bathing and baby routines', 'Confinement and milk-boosting meals, on request'], btn: 'See how infant care works', btnHref: 'infant-care.html', main: img('v2-confinement.jpg', 'A helper ladling nourishing soup in a home kitchen', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
-  ${show({ rev: true, eyebrow: 'Elderly care', h3: 'Eldercare that starts with your loved one’s needs.', p: 'We learn about daily-living support, dementia-related behaviours, mobility and tube care, then assess whether a helper can realistically manage the role before we recommend anyone.', list: ['Matched on care needs, not only availability', 'Help with AIC grants and practical care arrangements', 'Mandarin-speaking helpers, many with Taiwan eldercare experience'], btn: 'See how eldercare works', btnHref: 'elderly-care.html', main: img('v2-elderly2.jpg', 'A helper helping an elderly man with his weekly medication', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
+  ${show({ eyebrow: 'Elderly care', h3: 'Eldercare that starts with your loved one’s needs.', p: 'We learn about daily-living support, dementia-related behaviours, mobility and tube care, then assess whether a helper can realistically manage the role before we recommend anyone.', list: ['Matched on care needs, not only availability', 'Help with AIC grants and practical care arrangements', 'Mandarin-speaking helpers, many with Taiwan eldercare experience'], btn: 'See how eldercare works', btnHref: 'elderly-care.html', main: img('v2-elderly2.jpg', 'A helper helping an elderly man with his weekly medication', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
+  ${show({ rev: true, eyebrow: 'Infant care', h3: 'Care for mummy and baby, before and after birth.', p: 'Helpers trained to support you while you are pregnant and after you give birth, at a more affordable rate than a confinement nanny. All are equipped with the basics of baby care, such as feeding and bathing.', list: ['Pre-natal and post-partum support', 'Feeding, bathing and baby routines', 'Confinement and milk-boosting meals, on request'], btn: 'See how infant care works', btnHref: 'infant-care.html', main: img('v2-confinement.jpg', 'A helper ladling nourishing soup in a home kitchen', { cls: 'main', sizes: '(min-width:1000px) 640px, 100vw' }) })}
 </div></section>
 
 <section class="alt"><div class="wrap two top">

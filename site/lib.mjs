@@ -142,7 +142,7 @@ export function layout({ lang = 'en', file, title, desc, body, ld, active, alt, 
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light">
-<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:type" content="website"><meta property="og:image" content="${SITE.url}/assets/img/v2-hero.jpg">
+<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:type" content="website"><meta property="og:image" content="${SITE.url}/assets/img/v2-hero-elder.jpg">
 <link rel="canonical" href="${SITE.url}/${here}">
 ${ZH_PAGES.has(file) ? `<link rel="alternate" hreflang="en" href="${SITE.url}/${file}"><link rel="alternate" hreflang="zh-Hans" href="${SITE.url}/zh/${file}">` : ''}
 <meta name="robots" content="noindex, nofollow">

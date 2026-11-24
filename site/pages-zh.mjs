@@ -17,7 +17,7 @@ const FAQ_ZH = [
 
 pages['index.html'] = layout({
   ...BASE, file: 'index.html', active: 'index.html',
-  title: 'Help Is Here | 新加坡婴儿与长者护理帮佣中介',
+  title: 'Help Is Here | 新加坡长者与婴儿护理帮佣中介',
   desc: '4年以上新加坡经验、经公司面试筛选的帮佣，由先倾听您需求的护理顾问为您配对。免费护理咨询。',
   ld: ldBusiness(),
   body: `
@@ -26,7 +26,7 @@ pages['index.html'] = layout({
     <div>
       <span class="eyebrow">新加坡帮佣中介</span>
       <h1>聘请帮佣是个重要的决定。<em>我们陪您一起考虑。</em></h1>
-      <p class="lead">我们专注婴儿护理与长者护理。每位帮佣都有4年以上的新加坡工作经验，并由我们先行面试，让您只见到真正适合您家庭的人选。</p>
+      <p class="lead">我们专注长者护理与婴儿护理。每位帮佣都有4年以上的新加坡工作经验，并由我们先行面试，让您只见到真正适合您家庭的人选。</p>
       <div class="calls">
         <a class="btn offset" href="contact.html">寻找帮佣 ${arrow}</a>
         <a class="btn ghost" href="#guide">阅读新手雇主指南</a>
@@ -34,10 +34,10 @@ pages['index.html'] = layout({
       <p class="meta">免费护理咨询，不强行推销。或致电 <a href="tel:${SITE.tel}">${SITE.telShow}</a></p>
     </div>
     <div class="frame">
-      <div class="photo">${img('v2-hero.jpg', '身穿紫色制服的帮佣抱着熟睡的新生儿，妈妈在一旁微笑看着', { w: 1200, h: 1600, lazy: false, r: '../', sizes: '(min-width:1000px) 560px, 100vw' })}</div>
+      <div class="photo">${img('v2-hero-elder.jpg', '身穿紫色制服的帮佣与年长女士在沙发上手牵手，开怀大笑', { w: 1200, h: 1600, lazy: false, r: '../', sizes: '(min-width:1000px) 560px, 100vw' })}</div>
       <aside class="float" aria-label="客户评价节选">
-        <p lang="en">“Chose our helper on 25th October through video conferencing. Received our helper on the 3rd of November. 9 days!”</p>
-        <small>Asilah S.，首次聘请帮佣的雇主 · Google 评价（保留原文）</small>
+        <p lang="en">“From the first meeting, Care Consultants Pei and Thiri heard and understood our worries and patiently addressed many of our concerns.”</p>
+        <small>Christine K.，照顾90岁母亲的家属 · Google 评价（保留原文）</small>
       </aside>
     </div>
   </div>
@@ -47,9 +47,9 @@ ${press(L, '../')}
 
 <section id="care">
   <div class="wrap">
-    ${head('我们最擅长的', '婴儿护理与长者护理，<em>是我们的专长。</em>', '多数中介什么都做。我们选择专注于帮佣最关键的两种情况。')}
-    ${show({ eyebrow: '婴儿护理', h3: '产前产后，照顾妈妈和宝宝。', p: '月子保姆通常只陪伴一个月。受过培训的帮佣可以长期留下，价格也更合理，部分帮佣还会烹调月子餐和催奶餐。', list: ['具备婴儿护理经验并接受额外培训', '可按需要准备月子餐和催奶餐', '超越第一个月，继续支持妈妈和宝宝'], btn: '寻找婴儿护理帮佣', btnHref: needLink('infant'), link: ['../infant-care.html', '了解婴儿护理服务（英文页面）'], main: img('v2-infant.jpg', '帮佣给宝宝喂奶，妈妈在一旁微笑', { cls: 'main', r: '../', sizes: '(min-width:1000px) 640px, 100vw' }) })}
-    ${show({ rev: true, eyebrow: '长者护理', h3: '让您挚爱的家人在家安全、受尊重地生活。', p: '缺乏培训的照护可能让长者面临风险，对有特殊健康状况的长者尤其如此。我们的帮佣完成正规长者护理课程，只需极少指导就能做好工作。', list: ['上岗前完成正规长者护理培训', '不只看技能，也看性格是否合适', '可安排会讲华语的帮佣'], btn: '寻找长者护理帮佣', btnHref: needLink('elderly'), link: ['../elderly-care.html', '了解长者护理服务（英文页面）'], main: img('v2-elderly.jpg', '帮佣搀扶着拄拐杖的老奶奶，两人笑着交谈', { cls: 'main', r: '../', sizes: '(min-width:1000px) 640px, 100vw' }), mini: img('v2-elderly2.jpg', '帮佣在餐桌旁协助老先生整理每周药物', { cls: 'mini', r: '../', sizes: '220px' }) })}
+    ${head('我们最擅长的', '长者护理与婴儿护理，<em>是我们的专长。</em>', '多数中介什么都做。我们选择专注于帮佣最关键的两种情况。')}
+    ${show({ eyebrow: '长者护理', h3: '让您挚爱的家人在家安全、受尊重地生活。', p: '缺乏培训的照护可能让长者面临风险，对有特殊健康状况的长者尤其如此。我们的帮佣完成正规长者护理课程，只需极少指导就能做好工作。', list: ['上岗前完成正规长者护理培训', '不只看技能，也看性格是否合适', '可安排会讲华语的帮佣'], btn: '寻找长者护理帮佣', btnHref: needLink('elderly'), link: ['../elderly-care.html', '了解长者护理服务（英文页面）'], main: img('v2-elderly.jpg', '帮佣搀扶着拄拐杖的老奶奶，两人笑着交谈', { cls: 'main', r: '../', sizes: '(min-width:1000px) 640px, 100vw' }), mini: img('v2-elderly2.jpg', '帮佣在餐桌旁协助老先生整理每周药物', { cls: 'mini', r: '../', sizes: '220px' }) })}
+    ${show({ rev: true, eyebrow: '婴儿护理', h3: '产前产后，照顾妈妈和宝宝。', p: '月子保姆通常只陪伴一个月。受过培训的帮佣可以长期留下，价格也更合理，部分帮佣还会烹调月子餐和催奶餐。', list: ['具备婴儿护理经验并接受额外培训', '可按需要准备月子餐和催奶餐', '超越第一个月，继续支持妈妈和宝宝'], btn: '寻找婴儿护理帮佣', btnHref: needLink('infant'), link: ['../infant-care.html', '了解婴儿护理服务（英文页面）'], main: img('v2-infant.jpg', '帮佣给宝宝喂奶，妈妈在一旁微笑', { cls: 'main', r: '../', sizes: '(min-width:1000px) 640px, 100vw' }) })}
   </div>
 </section>
 
